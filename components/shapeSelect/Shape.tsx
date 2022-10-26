@@ -1,10 +1,7 @@
+import type { ShapeInfo } from "../../types";
+
 type Props = {
-  shapeInfo: {
-    color: string;
-    bottomShadow: string;
-    position: string;
-    icon: any;
-  };
+  shapeInfo: ShapeInfo;
 };
 
 const Shape = ({ shapeInfo }: Props) => {

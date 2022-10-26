@@ -11,10 +11,13 @@ const Home: NextPage = () => {
   const [score, setScore] = useState<number>(0);
   const [hasPlayed, setHasPlayed] = useState<boolean>(false);
   const [result, setResult] = useState<string>("");
+  const [currentPlay, setCurrentPlay] = useState({ player: "", computer: "" });
 
   const makePlay = (selectedShape: string) => {
     const shapes = ["rock", "paper", "scissors"];
     const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+
+    setCurrentPlay({ player: selectedShape, computer: randomShape });
 
     if (selectedShape === randomShape) {
       setHasPlayed(true);
@@ -50,7 +53,7 @@ const Home: NextPage = () => {
         <Score score={score} />
 
         {hasPlayed ? (
-          <PlayResult result={result} />
+          <PlayResult result={result} currentPlay={currentPlay} />
         ) : (
           <ShapeSelect makePlay={makePlay} />
         )}

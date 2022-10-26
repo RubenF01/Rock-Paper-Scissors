@@ -1,18 +1,37 @@
 import Shape from "../shapeSelect/Shape";
+import { shapes } from "../../utils";
+import type { ShapeInfo } from "../../types";
 
 type Props = {
   result: string;
+  currentPlay: { player: string; computer: string };
 };
 
-const PlayResult = ({ result }: Props) => {
+const PlayResult = ({ result, currentPlay }: Props) => {
+  const playerShape = shapes.find((shape) => shape.name === currentPlay.player);
+  const computerShape = shapes.find(
+    (shape) => shape.name === currentPlay.computer
+  );
+
+  console.log(playerShape, computerShape);
+
   const formatResult = (result: string) => {
-    return "hola";
+    switch (result) {
+      case "win":
+        return "you lose";
+        break;
+      case "lose":
+        return "you lose";
+        break;
+      default:
+        return "tie";
+    }
   };
   return (
     <div>
-      <Shape />
-      <h1>{formatResult(result)}</h1>
-      <Shape />
+      <Shape shapeInfo={playerShape as ShapeInfo} />
+      <h1 className="uppercase">{formatResult(result)}</h1>
+      <Shape shapeInfo={computerShape as ShapeInfo} />
     </div>
   );
 };
