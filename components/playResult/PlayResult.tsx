@@ -1,13 +1,13 @@
 import Shape from "../shapeSelect/Shape";
-import { shapes } from "../../utils";
 import type { ShapeInfo } from "../../types";
 
 type Props = {
   result: string;
   currentPlay: { player: string; computer: string };
+  shapes: ShapeInfo[];
 };
 
-const PlayResult = ({ result, currentPlay }: Props) => {
+const PlayResult = ({ result, currentPlay, shapes }: Props) => {
   const playerShape = shapes.find((shape) => shape.name === currentPlay.player);
   const computerShape = shapes.find(
     (shape) => shape.name === currentPlay.computer

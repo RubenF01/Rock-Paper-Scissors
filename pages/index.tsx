@@ -5,6 +5,33 @@ import ShapeSelect from "../components/shapeSelect/ShapeSelect";
 import { useState } from "react";
 import RuleModal from "../components/ruleModal/RuleModal";
 import PlayResult from "../components/playResult/PlayResult";
+import Rock from "../public/icons/icon-rock.svg";
+import Paper from "../public/icons/icon-paper.svg";
+import Scissors from "../public/icons/icon-scissors.svg";
+
+const shapes = [
+  {
+    color: "bg-gradient-to-b from-[#dd405d] to-[#dc2e4e]",
+    bottomShadow: "bg-[#9f1535]",
+    position: "absolute bottom-0",
+    icon: <Rock />,
+    name: "rock",
+  },
+  {
+    color: "bg-gradient-to-b from-[#5671f5] to-[#4865f4]",
+    bottomShadow: "bg-[#2945c2]",
+    position: "absolute left-0 top-0",
+    icon: <Paper />,
+    name: "paper",
+  },
+  {
+    color: "bg-gradient-to-b from-[#eca922] to-[#ec9e0e]",
+    bottomShadow: "bg-[#c76c1b]",
+    position: "absolute right-0 top-0",
+    icon: <Scissors />,
+    name: "scissors",
+  },
+];
 
 const Home: NextPage = () => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -53,9 +80,13 @@ const Home: NextPage = () => {
         <Score score={score} />
 
         {hasPlayed ? (
-          <PlayResult result={result} currentPlay={currentPlay} />
+          <PlayResult
+            result={result}
+            currentPlay={currentPlay}
+            shapes={shapes}
+          />
         ) : (
-          <ShapeSelect makePlay={makePlay} />
+          <ShapeSelect makePlay={makePlay} shapes={shapes} />
         )}
 
         {isVisible && (

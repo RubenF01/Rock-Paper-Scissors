@@ -3,4 +3,5 @@ export interface ShapeInfo {
   bottomShadow: string;
   position: string;
   icon: any;
+  name: string;
 }
