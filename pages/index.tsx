@@ -8,6 +8,7 @@ import PlayResult from "../components/playResult/PlayResult";
 import Rock from "../public/icons/icon-rock.svg";
 import Paper from "../public/icons/icon-paper.svg";
 import Scissors from "../public/icons/icon-scissors.svg";
+import type { CurrentPlay } from "../types";
 
 const shapes = [
   {
@@ -38,7 +39,10 @@ const Home: NextPage = () => {
   const [score, setScore] = useState<number>(0);
   const [hasPlayed, setHasPlayed] = useState<boolean>(false);
   const [result, setResult] = useState<string>("");
-  const [currentPlay, setCurrentPlay] = useState({ player: "", computer: "" });
+  const [currentPlay, setCurrentPlay] = useState<CurrentPlay>({
+    player: "",
+    computer: "",
+  });
 
   const makePlay = (selectedShape: string) => {
     const shapes = ["rock", "paper", "scissors"];
@@ -68,6 +72,11 @@ const Home: NextPage = () => {
     setHasPlayed(true);
   };
 
+  const resetGame = () => {
+    setHasPlayed(false);
+    setCurrentPlay({ player: "", computer: "" });
+  };
+
   return (
     <div>
       <Head>
@@ -84,6 +93,8 @@ const Home: NextPage = () => {
             result={result}
             currentPlay={currentPlay}
             shapes={shapes}
+            hasPlayed={hasPlayed}
+            resetGame={resetGame}
           />
         ) : (
           <ShapeSelect makePlay={makePlay} shapes={shapes} />

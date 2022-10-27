@@ -5,3 +5,8 @@ export interface ShapeInfo {
   icon: any;
   name: string;
 }
+
+export interface CurrentPlay {
+  player: string;
+  computer: string;
+}

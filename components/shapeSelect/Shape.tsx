@@ -2,22 +2,27 @@ import type { ShapeInfo } from "../../types";
 
 type Props = {
   shapeInfo: ShapeInfo;
+  hasPlayed?: boolean;
 };
 
-const Shape = ({ shapeInfo }: Props) => {
+const Shape = ({ shapeInfo, hasPlayed }: Props) => {
   const { color, bottomShadow, icon } = shapeInfo;
   return (
     <div
-      className={`relative ${bottomShadow} rounded-full h-[183px] w-44 cursor-pointer`}
+      className={`relative ${bottomShadow} rounded-full cursor-pointer ${
+        hasPlayed ? "h-[300px w-72" : "w-44 h-[183px]"
+      }`}
     >
       <div
-        className={`absolute flex items-center justify-center ${color} rounded-full w-44 h-44`}
+        className={`absolute flex items-center justify-center ${color} rounded-full ${
+          hasPlayed ? "w-72 h-72" : "w-44 h-44"
+        }`}
       >
         <div className="bg-juliet rounded-full h-[75%] w-[75%] flex justify-center items-center relative">
           <div className="absolute bottom-0 left-0 right-0 rounded-full bg-snowbank top-2" />
         </div>
 
-        <div className="absolute">{icon}</div>
+        <div className={`absolute ${hasPlayed ? "scale-150" : ""}`}>{icon}</div>
       </div>
     </div>
   );
