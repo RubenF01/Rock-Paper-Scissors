@@ -33,6 +33,7 @@ const PlayResult = ({
         return "tie";
     }
   };
+
   return (
     <div className="flex items-center mt-24">
       <div className="flex flex-col items-center">

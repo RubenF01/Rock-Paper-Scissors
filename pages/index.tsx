@@ -67,6 +67,8 @@ const Home: NextPage = () => {
       if (score > 0) {
         setResult("lose");
         setScore(score - 1);
+      } else {
+        setResult("lose");
       }
     }
     setHasPlayed(true);
