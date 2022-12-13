@@ -46,7 +46,7 @@ const PlayResult = ({
 
     setTimeout(() => {
       setIsButtonVisible(true);
-    }, 3000);
+    }, 4500);
   });
 
   return (
@@ -66,8 +66,8 @@ const PlayResult = ({
       <AnimatePresence>
         {isButtonVisible && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, scaleX: 0.5 }}
+            animate={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.5 }}
             className="flex flex-col items-center mt-10"
           >
@@ -105,7 +105,7 @@ const PlayResult = ({
             initial={{ opacity: 1 }}
             animate={{ opacity: 0 }}
             transition={{ duration: 0.5, delay: 2 }}
-            className="flex items-center h-full"
+            className="flex items-center h-full w-72"
           >
             <div className="w-56 h-56 mt-16 rounded-full bg-black/10" />
           </motion.div>
