@@ -7,7 +7,7 @@ type Props = {
 };
 
 const Shape = ({ shapeInfo, hasPlayed }: Props) => {
-  const isWide = useMedia("(min-width: 1280px)");
+  const isWide = useMedia("(min-width: 1280px)", false);
   const { color, bottomShadow, icon } = shapeInfo;
 
   return (
