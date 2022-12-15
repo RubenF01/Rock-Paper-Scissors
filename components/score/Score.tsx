@@ -6,7 +6,7 @@ type Props = {
 
 const Score = ({ score }: Props) => {
   return (
-    <div className="flex justify-between items-center border-2 w-96 xl:w-[700px] border-white/50 rounded-2xl pr-5 pl-7 cursor-default">
+    <div className="flex justify-between items-center border-2 w-80 xl:w-[700px] border-white/50 rounded-2xl pr-5 pl-7 cursor-default">
       <div className="py-5">
         <Logo />
       </div>

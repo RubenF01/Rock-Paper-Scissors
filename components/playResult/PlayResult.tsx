@@ -30,10 +30,8 @@ const PlayResult = ({
     switch (result) {
       case "win":
         return "you win";
-        break;
       case "lose":
         return "you lose";
-        break;
       default:
         return "tie";
     }
