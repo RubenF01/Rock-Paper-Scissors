@@ -9,6 +9,7 @@ import Rock from "../public/icons/icon-rock.svg";
 import Paper from "../public/icons/icon-paper.svg";
 import Scissors from "../public/icons/icon-scissors.svg";
 import type { CurrentPlay } from "../types";
+import { AnimatePresence } from "framer-motion";
 
 const shapes = [
   {
@@ -102,11 +103,13 @@ const Home: NextPage = () => {
           <ShapeSelect makePlay={makePlay} shapes={shapes} />
         )}
 
-        {isVisible && (
-          <div className="absolute inset-0 z-50 flex items-center justify-center">
-            <RuleModal setIsVisible={setIsVisible} />
-          </div>
-        )}
+        <AnimatePresence>
+          {isVisible && (
+            <div className="absolute inset-0 z-50 flex items-center justify-center">
+              <RuleModal setIsVisible={setIsVisible} />
+            </div>
+          )}
+        </AnimatePresence>
 
         {isVisible && <div className="absolute inset-0 z-40 bg-black/40" />}
 
