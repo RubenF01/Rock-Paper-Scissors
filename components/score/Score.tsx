@@ -15,10 +15,12 @@ const Score = ({ score }: Props) => {
       </div>
 
       <div className="bg-white h-[75%] w-20 xl:w-36 flex items-center flex-col justify-center font-bold rounded-lg">
-        <p className="text-[10px] uppercase text-bellFlower xl:text-base">
+        <p className="text-[10px] uppercase text-bellFlower xl:text-base tracking-widest">
           score
         </p>
-        <h1 className="text-5xl text-freefall">{score}</h1>
+        <h1 className="text-4xl tracking-tighter xl:text-5xl text-freefall">
+          {score}
+        </h1>
       </div>
     </div>
   );

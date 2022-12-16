@@ -112,7 +112,7 @@ const Home: NextPage = () => {
 
         <button
           onClick={() => setIsVisible(true)}
-          className="absolute bottom-8 right-8 px-10 font-medium py-2 text-white uppercase border-[1px] border-white/70 rounded-lg hover:bg-white hover:text-black"
+          className="absolute xl:bottom-8 xl:right-8 bottom-16 px-10 font-medium py-2 text-white uppercase border-[1px] border-white/70 rounded-lg hover:bg-white hover:text-black"
         >
           rules
         </button>
