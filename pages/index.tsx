@@ -91,17 +91,19 @@ const Home: NextPage = () => {
       <main className="relative flex flex-col items-center w-screen h-screen pt-14 bg-gradient-to-b from-jade to-darkBlue font-roboto">
         <Score score={score} />
 
-        {hasPlayed ? (
-          <PlayResult
-            result={result}
-            currentPlay={currentPlay}
-            shapes={shapes}
-            hasPlayed={hasPlayed}
-            resetGame={resetGame}
-          />
-        ) : (
-          <ShapeSelect makePlay={makePlay} shapes={shapes} />
-        )}
+        <AnimatePresence>
+          {hasPlayed ? (
+            <PlayResult
+              result={result}
+              currentPlay={currentPlay}
+              shapes={shapes}
+              hasPlayed={hasPlayed}
+              resetGame={resetGame}
+            />
+          ) : (
+            <ShapeSelect makePlay={makePlay} shapes={shapes} />
+          )}
+        </AnimatePresence>
 
         <AnimatePresence>
           {isVisible && (

@@ -48,14 +48,14 @@ const PlayResult = ({
   });
 
   return (
-    <div className="flex items-center mt-24 space-x-16">
+    <div className="relative justify-center flex items-center w-[290px] xl:w-full mt-24 space-x-16">
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         className="flex flex-col items-center"
       >
-        <h1 className="pb-16 text-2xl font-bold text-white uppercase">
+        <h1 className="order-last pt-8 text-sm font-bold text-white uppercase xl:order-first xl:pb-16 xl:text-2xl">
           you picked
         </h1>
         <Shape shapeInfo={playerShape as ShapeInfo} hasPlayed={hasPlayed} />
@@ -67,13 +67,13 @@ const PlayResult = ({
             initial={{ opacity: 0, scaleX: 0.5 }}
             animate={{ opacity: 1, scaleX: 1 }}
             transition={{ duration: 0.5 }}
-            className="flex flex-col items-center mt-10"
+            className="absolute flex flex-col items-center top-[300px] right-3 xl:mt-10 xl:static"
           >
             <h1 className="pb-4 text-5xl font-bold text-white uppercase">
               {formatResult(result)}
             </h1>
             <button
-              className="uppercase bg-white hover:text-[#9f1535] px-14 py-3 rounded-lg font-bold"
+              className="uppercase bg-white hover:text-[#9f1535] w-64 h-[50px] rounded-lg font-bold"
               onClick={() => resetGame()}
             >
               play again
@@ -88,9 +88,10 @@ const PlayResult = ({
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
+            key="result"
             className="flex flex-col items-center"
           >
-            <h1 className="pb-16 text-2xl font-bold text-white uppercase">
+            <h1 className="order-last pt-8 text-sm font-bold text-white uppercase xl:order-first xl:pb-16 xl:text-2xl">
               the house picked
             </h1>
             <Shape
@@ -100,12 +101,13 @@ const PlayResult = ({
           </motion.div>
         ) : (
           <motion.div
+            key="placeholder"
             initial={{ opacity: 1 }}
             animate={{ opacity: 0 }}
-            transition={{ duration: 0.5, delay: 2 }}
+            transition={{ duration: 0.3, delay: 2.2 }}
             className="flex items-center h-full w-72"
           >
-            <div className="w-56 h-56 mt-16 rounded-full bg-black/10" />
+            <div className="absolute right-0 w-32 h-32 rounded-full top-1 xl:mt-16 xl:w-56 xl:h-56 bg-black/10 xl:static" />
           </motion.div>
         )}
       </AnimatePresence>
