@@ -48,7 +48,7 @@ const PlayResult = ({
   });
 
   return (
-    <div className="relative justify-center flex items-center w-[290px] xl:w-full mt-24 space-x-16">
+    <div className="relative justify-center grid grid-cols-2 xl:grid-cols-3 xl:justify-center items-center w-[290px] xl:w-full mt-24 gap-x-16">
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -91,7 +91,7 @@ const PlayResult = ({
             key="result"
             className="flex flex-col items-center"
           >
-            <h1 className="order-last pt-8 text-sm font-bold text-white uppercase xl:order-first xl:pb-16 xl:text-2xl">
+            <h1 className="order-last pt-8 text-sm font-bold text-white uppercase xl:order-first xl:pb-16 xl:text-2xl whitespace-nowrap">
               the house picked
             </h1>
             <Shape
