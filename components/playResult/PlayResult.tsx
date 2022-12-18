@@ -48,7 +48,11 @@ const PlayResult = ({
   });
 
   return (
-    <div className="relative justify-center grid grid-cols-2 xl:grid-cols-3 xl:justify-center items-center w-[290px] xl:w-full mt-24 gap-x-16">
+    <div
+      className={`relative justify-center grid grid-cols-2 xl:justify-center items-center w-[290px] xl:w-[950px] mt-24 gap-x-16 mx-auto ${
+        !isButtonVisible ? "xl:grid-cols-2" : "xl:grid-cols-3"
+      }`}
+    >
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -105,9 +109,9 @@ const PlayResult = ({
             initial={{ opacity: 1 }}
             animate={{ opacity: 0 }}
             transition={{ duration: 0.3, delay: 2.2 }}
-            className="flex items-center h-full w-72"
+            className="flex items-center pt-24"
           >
-            <div className="absolute right-0 w-32 h-32 rounded-full top-1 xl:mt-16 xl:w-56 xl:h-56 bg-black/10 xl:static" />
+            <div className="absolute right-0 w-32 h-32 rounded-full top-1 xl:w-60 xl:h-60 bg-black/10 xl:static" />
           </motion.div>
         )}
       </AnimatePresence>
