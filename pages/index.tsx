@@ -10,6 +10,7 @@ import Paper from "../public/icons/icon-paper.svg";
 import Scissors from "../public/icons/icon-scissors.svg";
 import type { CurrentPlay } from "../types";
 import { AnimatePresence } from "framer-motion";
+import openai from "../utils/openai";
 
 const shapes = [
   {
