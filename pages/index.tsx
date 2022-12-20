@@ -11,6 +11,7 @@ import Scissors from "../public/icons/icon-scissors.svg";
 import type { CurrentPlay } from "../types";
 import { AnimatePresence } from "framer-motion";
 import openai from "../utils/openai";
+import { formatResponse } from "../utils";
 
 const shapes = [
   {
@@ -46,22 +47,34 @@ const Home: NextPage = () => {
     computer: "",
   });
 
-  const makePlay = (selectedShape: string) => {
-    const shapes = ["rock", "paper", "scissors"];
-    const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+  const makePlay = async (selectedShape: string) => {
+    const response = await openai.createCompletion({
+      model: "text-davinci-003",
+      prompt: `create just one imaginary result for player 2 in rock, paper, and scissors if player 1 chooses ${selectedShape} in the following format: Player 2: player 2's result.`,
+      max_tokens: 7,
+      temperature: 0,
+    });
 
-    setCurrentPlay({ player: selectedShape, computer: randomShape });
+    const computerShape = formatResponse(
+      response.data.choices[0].text as string
+    );
 
-    if (selectedShape === randomShape) {
+    console.log(computerShape);
+    // const shapes = ["rock", "paper", "scissors"];
+    // const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
+
+    setCurrentPlay({ player: selectedShape, computer: computerShape });
+
+    if (selectedShape === computerShape) {
       setHasPlayed(true);
       setResult("tie");
       return;
     }
 
     if (
-      (selectedShape === "rock" && randomShape === "scissors") ||
-      (selectedShape === "paper" && randomShape === "rock") ||
-      (selectedShape === "scissors" && randomShape === "paper")
+      (selectedShape === "rock" && computerShape === "scissors") ||
+      (selectedShape === "paper" && computerShape === "rock") ||
+      (selectedShape === "scissors" && computerShape === "paper")
     ) {
       setResult("win");
       setScore(score + 1);
