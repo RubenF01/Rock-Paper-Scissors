@@ -59,10 +59,6 @@ const Home: NextPage = () => {
       response.data.choices[0].text as string
     );
 
-    console.log(computerShape);
-    // const shapes = ["rock", "paper", "scissors"];
-    // const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
-
     setCurrentPlay({ player: selectedShape, computer: computerShape });
 
     if (selectedShape === computerShape) {
