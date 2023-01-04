@@ -111,7 +111,7 @@ const PlayResult = ({
             transition={{ duration: 0.3, delay: 2.2 }}
             className="flex items-center pt-24"
           >
-            <div className="absolute right-0 w-32 h-32 rounded-full top-1 xl:w-60 xl:h-60 bg-black/10 xl:static" />
+            <div className="absolute right-0 w-32 h-32 rounded-full top-1 xl:w-60 xl:h-60 xl:ml-24 bg-black/10 xl:static" />
           </motion.div>
         )}
       </AnimatePresence>

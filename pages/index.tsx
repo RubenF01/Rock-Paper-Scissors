@@ -93,7 +93,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <Head>
-        <title>Rock, Paper, Scissors</title>
+        <title>Rock, Paper, Scissors VS ChatGPT</title>
         <meta name="description" content="The classic game we all love." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
